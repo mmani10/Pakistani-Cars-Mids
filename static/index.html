@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car Price Lab</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>What is your used car worth?</h1>
+    <p>Choose your car and 6 different machine learning models will estimate its price.</p>
+    <nav>
+      <button class="tab active" data-tab="predict">Price my car</button>
+      <button class="tab" data-tab="results">How the models did</button>
+    </nav>
+  </header>
+
+  <!-- TAB 1: the form and the answer -->
+  <section id="predict" class="panel">
+    <div class="grid">
+      <form class="card" id="form" autocomplete="off">
+        <h2>Your car</h2>
+        <div class="row">
+          <div><label for="make">Brand</label><select id="make"></select></div>
+          <div><label for="model">Model</label><select id="model"></select></div>
+        </div>
+        <div class="row">
+          <div><label for="year">Model year</label><select id="year"></select></div>
+          <div><label for="engine">Engine (cc)</label><select id="engine"></select></div>
+        </div>
+        <div class="row">
+          <div><label for="transmission">Gear type</label><select id="transmission"></select></div>
+          <div><label for="fuel">Fuel</label><select id="fuel"></select></div>
+        </div>
+        <div class="row">
+          <div><label for="assembly">Assembly</label>
+            <select id="assembly"><option>Local</option><option>Imported</option></select></div>
+          <div><label for="mileage">Kilometres driven</label><input type="number" id="mileage" min="100" max="500000" step="500"></div>
+        </div>
+        <div class="row">
+          <div><label for="city">City for sale</label><select id="city"></select></div>
+          <div><label for="registered">Registered in</label><select id="registered"></select></div>
+        </div>
+        <button class="go" id="go" type="submit">Get the price</button>
+        <p class="error" id="error"></p>
+      </form>
+
+      <aside class="card">
+        <div class="tag">
+          <small>Best estimate</small>
+          <div class="price" id="price">Rs --</div>
+          <div class="sub" id="sub">Fill in the form and press the button</div>
+        </div>
+        <div id="answer"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TAB 2: scores and charts -->
+  <section id="results" class="panel hidden">
+    <div class="card"><div id="resultsBox">Loading...</div></div>
+  </section>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
