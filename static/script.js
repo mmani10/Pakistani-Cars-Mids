@@ -9,8 +9,6 @@ const ABOUT = {
   "Logistic Regression": "Like linear regression, but for choosing a group.",
   "Decision Tree": "Asks a series of if-else questions, like a flowchart.",
   "Naive Bayes": "Uses probability and treats every feature as independent.",
-  "KNN": "Looks at the 5 most similar cars and copies their answer.",
-  "Neural Network (ANN)": "Layers of connected neurons that learn patterns.",
   "SVM (SVR)": "Finds the best line (boundary) that fits the data.",
   "SVM (SVC)": "Finds the best boundary between the groups.",
   "Gradient Boosting": "Many small trees, each fixing the mistakes of the last."

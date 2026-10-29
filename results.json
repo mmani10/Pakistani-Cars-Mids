@@ -5,29 +5,21 @@
       "r2": 0.862
     },
     "Decision Tree": {
-      "mae": 372898,
+      "mae": 372572,
       "r2": 0.926
-    },
-    "KNN": {
-      "mae": 416643,
-      "r2": 0.925
-    },
-    "Neural Network (ANN)": {
-      "mae": 380069,
-      "r2": 0.938
     },
     "SVM (SVR)": {
       "mae": 392505,
       "r2": 0.926
     },
     "Gradient Boosting": {
-      "mae": 313080,
-      "r2": 0.953
+      "mae": 313904,
+      "r2": 0.954
     }
   },
   "classification": {
     "Logistic Regression": {
-      "accuracy": 91.8
+      "accuracy": 91.7
     },
     "Decision Tree": {
       "accuracy": 91.8
@@ -35,18 +27,12 @@
     "Naive Bayes": {
       "accuracy": 58.6
     },
-    "KNN": {
-      "accuracy": 89.8
-    },
-    "Neural Network (ANN)": {
-      "accuracy": 92.4
-    },
     "SVM (SVC)": {
       "accuracy": 91.4
     }
   },
   "best_regression": "Gradient Boosting",
-  "best_classification": "Neural Network (ANN)",
+  "best_classification": "Decision Tree",
   "rows": 70743,
   "budget_limit": 1950000.0,
   "premium_limit": 3800000.0

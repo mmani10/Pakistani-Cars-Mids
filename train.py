@@ -25,8 +25,6 @@ from sklearn.metrics import mean_absolute_error, r2_score, accuracy_score, Confu
 from sklearn.linear_model import LinearRegression, LogisticRegression    # Regression / Classification
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier, plot_tree   # Decision Tree
 from sklearn.naive_bayes import GaussianNB                               # Naive Bayes
-from sklearn.neighbors import KNeighborsRegressor, KNeighborsClassifier  # KNN
-from sklearn.neural_network import MLPRegressor, MLPClassifier           # ANN
 from sklearn.svm import SVR, SVC                                         # SVM
 from sklearn.ensemble import HistGradientBoostingRegressor               # extra: best accuracy
 
@@ -63,8 +61,6 @@ def make_preprocessor():
 REGRESSION_MODELS = {
     "Linear Regression":    LinearRegression(),
     "Decision Tree":        DecisionTreeRegressor(max_depth=20, min_samples_leaf=5, random_state=1),
-    "KNN":                  KNeighborsRegressor(n_neighbors=5),
-    "Neural Network (ANN)": MLPRegressor(hidden_layer_sizes=(64, 32), early_stopping=True, max_iter=100, random_state=1),
     "SVM (SVR)":            SVR(C=3),
     "Gradient Boosting":    HistGradientBoostingRegressor(learning_rate=0.08, max_iter=300, max_leaf_nodes=127,
                                                   min_samples_leaf=10, l2_regularization=1.0, max_features=0.5, random_state=1),
@@ -73,8 +69,6 @@ CLASSIFICATION_MODELS = {
     "Logistic Regression":  LogisticRegression(max_iter=500),
     "Decision Tree":        DecisionTreeClassifier(max_depth=15, min_samples_leaf=5, random_state=1),
     "Naive Bayes":          GaussianNB(),
-    "KNN":                  KNeighborsClassifier(n_neighbors=5),
-    "Neural Network (ANN)": MLPClassifier(hidden_layer_sizes=(64, 32), early_stopping=True, max_iter=100, random_state=1),
     "SVM (SVC)":            SVC(C=3),
 }
 SLOW_MODELS = ["SVM (SVR)", "SVM (SVC)"]
@@ -175,7 +169,7 @@ if __name__ == "__main__":
     joblib.dump({"prep": prep, "regression": trained_reg, "classification": trained_clf,
                  "best_regression": best_reg, "best_classification": best_clf, "group_names": GROUP_NAMES,
                  "budget_limit": float(low), "premium_limit": float(high)}, "models.joblib",
-                compress=3)       # compress=3 keeps the file small (KNN stores all the cars)
+                compress=3)       # compress=3 keeps the file small
     results["best_regression"], results["best_classification"] = best_reg, best_clf
     results["rows"], results["budget_limit"], results["premium_limit"] = len(df), float(low), float(high)
     json.dump(results, open("results.json", "w"), indent=2)
