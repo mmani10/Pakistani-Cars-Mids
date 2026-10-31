@@ -27,7 +27,6 @@ prep = saved["prep"]                            # the preprocessing step
 data = load_clean_data()                        # the dataset (CSV)
 results = json.load(open("results.json"))       # scores from training
 
-
 # What the website must send us. FastAPI checks this automatically.
 class Car(BaseModel):
     make: str
